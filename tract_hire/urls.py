@@ -7,8 +7,8 @@ urlpatterns=[
     url('^$',views.index,name='index'),
     url(r'^search/',views.search_category, name='search_results'),
     url(r'^tractor/(\d+)',views.tractor_details,name='tractor_details'),
-    url(r'^location/(\d+)',views.filter_by_location,name='located_images')
-
+    url(r'^location/(\d+)',views.filter_by_location,name='located_images'),
+    url(r'^new/tractor/$',views.new_tractor,name='new-tractor'),
 ]
 
 if settings.DEBUG:
