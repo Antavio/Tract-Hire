@@ -3,8 +3,21 @@ body{
 }
 
 .btn{
-    border-radius: 20px;
+    border-radius: 30px;
 }
 .embed-responsive .card-img-top {
     object-fit: cover;
 }
+section {
+    display: block;
+}
+.w-100 {
+    width: 100%!important;
+}
+.d-block {
+    display: block!important;
+}
+
+.scaled {
+    transform: scale(0.8); /* Equal to scaleX(0.7) scaleY(0.7) */
+  }

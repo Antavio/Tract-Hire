@@ -14,7 +14,16 @@
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Filter By Locations</a>
+                <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+                    {% for location in locations %}
 
+                    <a class="dropdown-item" href="/location/{{location.id}}">{{location.location}}</a>
+                    {% endfor%}
+                </div>
+            </li>
 
 
         </ul>
@@ -28,8 +37,7 @@
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item" style="margin-top:0px;">
-                <a class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" href="">Submit
-                    Project</a>
+                <a class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" href="">List your Tractor</a>
             </li>
             {% else %}
             <li class="nav-item" style="margin-right:20px;">
