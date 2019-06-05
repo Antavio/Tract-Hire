@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def index(request):
     tractors = Tractor.fetch_all_tractors()
@@ -16,3 +17,12 @@ def search_category(request):
     else:
         message = "No search results yet!"
         return render (request, 'search/search.html', {"message": message})
+
+@login_required(login_url='/accounts/login/')
+def tractor_details(request,tractor_id):
+    try:
+        single_tractor = Tractor.get_single_tractor(tractor_id)
+
+    except Exception as  e:
+        raise Http404()
+    return render(request,'tract_hire/tractor_details.html',{"single_tractor":single_tractor})
