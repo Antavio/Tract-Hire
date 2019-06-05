@@ -5,19 +5,17 @@ body{
 .btn{
     border-radius: 40px;
 }
-.embed-responsive .card-img-top {
-    object-fit: cover;
-}
-section {
-    display: block;
-}
-.w-100 {
-    width: 100%!important;
-}
-.d-block {
-    display: block!important;
-}
 
-.scaled {
-    transform: scale(0.8); /* Equal to scaleX(0.7) scaleY(0.7) */
-  }
+/* Half Page Carousel itself*/
+.carousel {
+    height: 50%; }
+    .carousel .carousel-inner {
+      height: 100%; }
+      .carousel .carousel-inner .carousel-item,
+      .carousel .carousel-inner .active {
+        height: 100%; }
+  
+  /* Adjustment for mobile devices*/
+  @media (max-width: 776px) {
+    .carousel {
+      height: 100%; } }
