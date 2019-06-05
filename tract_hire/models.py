@@ -32,3 +32,8 @@ class Tractor(models.Model):
     def search_tractor(cls,search_term):
         tractor = cls.objects.filter(category__icontains=search_term)
         return tractor   
+
+    @classmethod
+    def get_single_tractor(cls, tractor):
+        tractor = cls.objects.get(id=tractor)
+        return tractor
