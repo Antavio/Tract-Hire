@@ -19,10 +19,12 @@
         <!-- Title -->
         <h4 class="card-title text-center"><strong>{{single_tractor.name}}</strong></h4>
         <!-- Subtitle -->
-        <h6 class="font-weight-bold indigo-text py-2">{{single_tractor.category}}</h6>
+        <h6 class="font-weight-bold indigo-text py-2"> <strong>Category: </strong>{{single_tractor.category}}</h6>
         <!-- Text -->
-        <p class="card-text">{{single_tractor.location}} </p>
-        <p class="card-text">{{single_tractor.contact}} </p>
+        <p class="card-text"><strong>Description:</strong> {{single_tractor.description}} </p>
+        <p class="card-text"><strong>Location:</strong>{{single_tractor.location_id}} </p>
+        <p class="card-text"><strong>Tel:{{single_tractor.contact}}</strong> </p>
+        <p class="card-text"><strong>Ksh:{{single_tractor.price_estimate}} per Acre</strong></p>
         <button class="btn btn-success float-right">Add to Cart</button>
     </div>
 

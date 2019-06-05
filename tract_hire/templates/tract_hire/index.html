@@ -68,10 +68,8 @@
                     <!--Title-->
                     <h4 class="card-title">{{tractor.name}}</h4>
                     <!--Text-->
-                    <p class="card-text">Category: {{tractor.category}}</p>
-                    <p class="card-text">Price Estimate: Ksh {{tractor.price_estimate}}</p>
-                    <p class="card-text">Location: {{tractor.location}}</p>
-                    <p class="card-text">Tel: {{tractor.contact}}</p>
+                    <p class="card-text"><strong>Category:</strong> {{tractor.category}}</p>
+                    <p class="card-text"><strong>Location:</strong> {{tractor.location_id}}</p>
                     <a href="{% url 'tractor_details' tractor.pk %}" class="btn btn-danger float-right">View More</a>
 
                 </div>
@@ -93,7 +91,7 @@
 
         {% empty %}
         <div class="row">
-            <h1 class="text-center"> No Images Yet</h1>
+            <h1 style="margin-left:20px;"> No Images Yet</h1>
         </div>
         {% endfor %}
     </div>
