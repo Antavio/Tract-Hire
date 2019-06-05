@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 urlpatterns=[
     url('^$',views.index,name='index'),
     url(r'^search/',views.search_category, name='search_results'),
+    url(r'^tractor/(\d+)',views.tractor_details,name='tractor_details'),
 
 ]
 
