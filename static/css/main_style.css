@@ -1,3 +1,7 @@
 body{
     background-image: url(/static/images/restaurant_icons.png)
 }
+
+.btn{
+    border-radius: 20px;
+}

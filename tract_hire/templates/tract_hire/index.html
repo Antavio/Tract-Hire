@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container-fluid">
     <div>
-        <h4 class="text-center heading">Hire Tractors Today</4>
+        <h4 class="text-center heading">Hire a Tractor Today</h4>
     </div>
     <div class="row">
         {% for tractor in tractors %}
@@ -25,7 +25,7 @@
                     <p class="card-text">Price Estimate: Ksh {{tractor.price_estimate}}</p>
                     <p class="card-text">Location: {{tractor.location}}</p>
                     <p class="card-text">Tel: {{tractor.contact}}</p>
-                    <p><a href="">View More</a></p>                    
+                    <a href="" class="btn btn-danger float-right">View More</a>                   
 
                 </div>
             </div>
