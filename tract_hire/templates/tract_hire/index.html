@@ -25,7 +25,7 @@
                     <p class="card-text">Price Estimate: Ksh {{tractor.price_estimate}}</p>
                     <p class="card-text">Location: {{tractor.location}}</p>
                     <p class="card-text">Tel: {{tractor.contact}}</p>
-                    <a href="" class="btn btn-danger float-right">View More</a>                   
+                    <a href="{% url 'tractor_details' tractor.pk %}" class="btn btn-danger float-right">View More</a>                   
 
                 </div>
             </div>

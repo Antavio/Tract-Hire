@@ -5,3 +5,6 @@ body{
 .btn{
     border-radius: 20px;
 }
+.embed-responsive .card-img-top {
+    object-fit: cover;
+}
