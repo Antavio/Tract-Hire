@@ -1,4 +1,58 @@
 {% extends 'tract_hire/base.html'%}
 {% block content %}
-<h1>WELCOME</h1>
+<div class="container-fluid">
+    <div>
+        <h4 class="text-center heading">Hire Tractors Today</4>
+    </div>
+    <div class="row">
+        {% for tractor in tractors %}
+
+        <div class="col-md-4 main-page d-flex" style=" margin-top: 5px;">
+            <div class="card card-cascade wider flex-fill ">
+
+                <!-- Card image -->
+                <div class="view view-cascade overlay">
+                    <a data-toggle="modal" data-target="#{{tractor.id}}"><img class="card-img-top"
+                            src="{{tractor.tractor_image.url}}" alt="{{tractor.name}}"></a>
+                </div>
+                <!--Card content-->
+                <div class="card-body">
+
+                    <!--Title-->
+                    <h4 class="card-title">{{tractor.name}}</h4>
+                    <!--Text-->
+                    <p class="card-text">Category: {{tractor.category}}</p>
+                    <p class="card-text">Price Estimate: Ksh {{tractor.price_estimate}}</p>
+                    <p class="card-text">Location: {{tractor.location}}</p>
+                    <p class="card-text">Tel: {{tractor.contact}}</p>
+                    <p><a href="">View More</a></p>                    
+
+                </div>
+            </div>
+        </div>
+        <!--Modal: modalYT-->
+        <div class="modal fade" id="{{tractor.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">                               
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img class="embed-responsive-item" src="{{tractor.tractor_image.url}}" alt="Image Loading"
+                                style="margin:10px;" allowfullscreen>
+                        </div>                              
+
+            </div>
+        </div>
+        <!--Modal: modalYT-->
+
+
+        {% empty %}
+        <div class="row">
+            <h1 class="text-center"> No Images Yet</h1>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Card deck -->
+    <div class="row">
+    </div>
+    
+</div>
 {% endblock %}
