@@ -19,3 +19,7 @@ body{
   @media (max-width: 776px) {
     .carousel {
       height: 100%; } }
+
+.navbar{
+  background-color: #367c2b;
+}
