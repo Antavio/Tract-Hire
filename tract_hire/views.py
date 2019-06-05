@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
+from .forms import *
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 def index(request):
@@ -35,3 +36,17 @@ def filter_by_location(request,tractor_id):
     except DoesNotExist:
         raise Http404()
     return render(request,'tractor_location/filter_location.html',{"located_tractors":located_tractors,"locations":location})
+
+@login_required(login_url='/accounts/login/')
+def new_tractor(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = TractorForm(request.POST,request.FILES)
+        if form.is_valid():
+            user_tractor = form.save(commit=False)
+            user_tractor.user = current_user
+            user_tractor.save()
+        return redirect('index')
+    else:
+        form = TractorForm()
+    return render(request,"upload_tractor/new_tractor.html",{"form":form})
