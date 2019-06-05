@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from .models import *
 # Create your views here.
 def index(request):
-    return render(request,'tract_hire/index.html')
+    tractors = Tractor.fetch_all_tractors()
+    return render(request,'tract_hire/index.html',{"tractors":tractors})
