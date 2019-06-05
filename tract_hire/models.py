@@ -19,15 +19,28 @@ class Location(models.Model):
         location_found = cls.objects.all()
         return location_found
 
+class Category(models.Model):
+    category = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.category
+
+    def save_category(self):
+        self.save()
+
+    def delete_category(self):
+        Category.objects.filter().delete()
+
 
 class Tractor(models.Model):
     name = models.CharField(max_length=255)
     tractor_image = models.ImageField(upload_to='tractor_pics',blank=True)
-    category = models.CharField(max_length=200)
+    category = models.ForeignKey(Category,blank=True)
+    description = models.TextField(blank=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     price_estimate = models.FloatField()
     location_id = models.ForeignKey(Location,blank=True)
-    contact = models.IntegerField()
+    contact = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
