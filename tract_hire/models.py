@@ -61,7 +61,7 @@ class Tractor(models.Model):
 
     @classmethod
     def search_tractor(cls,search_term):
-        tractor = cls.objects.filter(category__icontains=search_term)
+        tractor = cls.objects.filter(name__icontains=search_term)
         return tractor   
 
     @classmethod
@@ -80,3 +80,22 @@ class Event(models.Model):
 
     def __str__(self):
         return self.user_email  
+
+class Profile(models.Model):
+    profile_picture = models.ImageField(upload_to='prof_pics/',blank=True)
+    prof_user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    bio = models.TextField()
+    all_tractors = models.ForeignKey('Tractor',on_delete=models.CASCADE,null=True)
+
+    def __str__(self):
+        return self.bio
+
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()
+
+    def update_bio(self,bio):
+        self.bio = bio
+        self.save()

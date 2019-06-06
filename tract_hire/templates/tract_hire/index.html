@@ -27,7 +27,7 @@
                 <!--/Second slide-->
                 <!--Third slide-->
                 <div style='height:500px' class="carousel-item oneone">
-                    <img class="d-block w-100 img-fluid" src="/static/images/Spayer two.jpg"
+                    <img class="d-block w-100 img-fluid" src="/static/images/combine-harvester-1907864.jpg"
                         alt="Third slide">
                 </div>
                 <!--/Third slide-->
@@ -50,7 +50,7 @@
 <div class="container-fluid">
     <div>
         <h4 class="text-center heading">Hire a Tractor Today</h4>
-        <p class="text-center">{{current_date|date}} </p>
+        <p class="text-center date">{{current_date|date}} </p>
     </div>
     <div class="row">
         {% for tractor in tractors %}
@@ -67,7 +67,7 @@
                 <div class="card-body">
 
                     <!--Title-->
-                    <h4 class="card-title">{{tractor.name}}</h4>
+                    <h4 class="card-title heading">{{tractor.name}}</h4>
                     <!--Text-->
                     <p class="card-text"><strong>Category:</strong> {{tractor.category}}</p>
                     <p class="card-text"><strong>Location:</strong> {{tractor.location_id}}</p>

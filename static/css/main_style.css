@@ -16,3 +16,10 @@ body{
   height: 35vw;
   object-fit: cover
 }
+.heading{
+  font-family: 'Righteous', cursive;
+}
+.date{
+  font-family: 'Special Elite', cursive;
+  font-size: 25px;
+}

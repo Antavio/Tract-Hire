@@ -9,6 +9,9 @@ urlpatterns=[
     url(r'^tractor/(\d+)',views.tractor_details,name='tractor_details'),
     url(r'^location/(\d+)',views.filter_by_location,name='located_images'),
     url(r'^new/tractor/$',views.new_tractor,name='new-tractor'),
+    url(r'^profile/$',views.profile,name='profile'),
+    url(r'^new_profile/$',views.new_profile,name = 'new_profile'),
+    url(r'^edit/profile/$',views.profile_edit,name = 'edit_profile'),
 ]
 
 if settings.DEBUG:
