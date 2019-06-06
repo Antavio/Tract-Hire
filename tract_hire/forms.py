@@ -11,7 +11,13 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Event
         exclude = ['username','tractor_id']
-        
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['prof_user','all_tractors']
+
 # class BookingForm(forms.Form):
 #     your_name = forms.CharField(label='Enter Username',max_length=100)
 #     email = forms.EmailField(label='Email')
