@@ -73,3 +73,10 @@ class Tractor(models.Model):
     def filter_by_location(cls,location_filter):
         located_tracts = Tractor.objects.filter(location_id__id=location_filter)
         return located_tracts
+
+class Event(models.Model):
+    start_date = models.DateField(auto_now_add=False)
+    user_email = models.EmailField(blank=True)
+
+    def __str__(self):
+        return self.user_email  

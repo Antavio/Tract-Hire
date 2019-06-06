@@ -6,12 +6,9 @@
     <div class="card card-cascade wider reverse">
 
         <!-- Card image -->
-        <div class="embed-responsive embed-responsive-16by9">
+        <div style='height:500px' class="embed-responsive embed-responsive-16by9 oneone">
             <img class="card-img-top embed-responsive-item" src="{{single_tractor.tractor_image.url}}"
                 alt="Card image cap">
-            <a href="#!">
-                <div class="mask rgba-white-slight"></div>
-            </a>
         </div>
 
         <!-- Card content -->
@@ -26,9 +23,20 @@
             <p class="card-text"><strong>Location:</strong>{{single_tractor.location_id}} </p>
             <p class="card-text"><strong>Tel:{{single_tractor.contact}}</strong> </p>
             <p class="card-text"><strong>Ksh:{{single_tractor.price_estimate}} per Acre</strong></p>
-            <button class="btn btn-success float-right">Book Tractor</button>
-        </div>
 
+        </div>
+        <div class="container-fluid">
+            
+            <div class="col-md-5" style="margin-left:400px;">
+                <form action="{% url 'tractor_details' single_tractor.pk %}" method="post">
+                    {%csrf_token%}
+
+                    {% bootstrap_form bookingForm layout='inline' %}
+                    <input type="submit" value="Book Tractor" class="btn btn-success" style="margin-left:130px;">
+                </form>
+            </div>
+           
+        </div>
     </div>
     <!-- Card -->
 </div>

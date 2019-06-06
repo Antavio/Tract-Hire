@@ -2,11 +2,15 @@ from django.shortcuts import render,redirect
 from .models import *
 from .forms import *
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse,Http404,HttpResponseRedirect
+from .email import send_welcome_email
+import datetime
 # Create your views here.
 def index(request):
     tractors = Tractor.fetch_all_tractors()
     location = Location.get_location()
-    return render(request,'tract_hire/index.html',{"tractors":tractors,"locations":location})
+    current_date = datetime.datetime.now()
+    return render(request,'tract_hire/index.html',{"tractors":tractors,"locations":location,"current_date":current_date})
 
 def search_category(request):
     if 'category' in request.GET and request.GET ["category"]:
@@ -22,12 +26,20 @@ def search_category(request):
 
 @login_required(login_url='/accounts/login/')
 def tractor_details(request,tractor_id):
-    try:
-        single_tractor = Tractor.get_single_tractor(tractor_id)
-
-    except Exception as  e:
-        raise Http404()
-    return render(request,'tract_hire/tractor_details.html',{"single_tractor":single_tractor})
+    if request.method == 'POST':
+            form = BookingForm(request.POST)
+            if form.is_valid():
+                start_date = form.cleaned_data['start_date']
+                user_email = form.cleaned_data['user_email']
+                recipient = Event(start_date=start_date,user_email=user_email)
+                recipient.save()
+                send_welcome_email(start_date,user_email)
+                HttpResponseRedirect('index')
+                print('Valid')
+    else:
+        form = BookingForm()
+    single_tractor = Tractor.get_single_tractor(tractor_id)
+    return render(request,'tract_hire/tractor_details.html',{"single_tractor":single_tractor,"bookingForm":form})
 
 def filter_by_location(request,tractor_id):
     try:
